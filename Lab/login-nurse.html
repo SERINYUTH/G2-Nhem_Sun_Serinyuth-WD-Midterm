@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm - </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+    <header>
+        <a href="#" id="main-logo">Clinical Information System (CIS)</a>
+
+        <div class="dropdown dropdown-bottom">
+            <div tabindex="0" role="button" class="btn m-1">Login As</div>
+            <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <li><a href="login-admin.html">Admin</a></li>
+                <li><a href="login-nurse.html">Nurse</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1 style="font-size: 25px;">Welcome to login page</h1>
+
+        <p style="font-size: 18px;">Login as a Nurse</p>
+
+        <form>
+            <label for="idField">Enter your ID field:</label>
+            <input id="idField" type="text" placeholder="ID field"required>
+
+            <label for="username">Enter your Username:</label>
+            <input id="username" type="text" placeholder="Username" required>
+
+            <label for="password">Enter your Password:</label>
+            <input id="password" type="password" placeholder="Password" required>
+        
+            <button type="submit" onclick="next">Login</button>
+        </form>
+
+        
+    </main>
+</body>
+
+<script>
+    // Password Strength Feedback
+    const pswd_input = document.getElementById("password");
+    let pswd = pswd_input.addEventListener("input").value;
+
+    let has8char = false;
+    if (pswd.length() >= 8) {
+        has8char = true;
+    }
+
+    let hasNumber = false;
+    const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for (i = 0; i < pswd.lenght(); i++) {
+        if (i in num) {
+            hasNumber = true;
+            break;
+        }
+    }
+
+    if (has8char == true && hasNumber == true) {    
+        document.getElementById("password").style.color = "green";
+    }
+
+    // Next page
+    function next() {
+
+    }
+    
+</script>
+
+</html>
